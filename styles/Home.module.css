@@ -9,11 +9,17 @@
 }
 
 .main {
-  padding: 5rem 0;
+  padding: 1rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+}
+
+.header {
+  width: 900px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -37,6 +43,28 @@
 .title a {
   color: #0070f3;
   text-decoration: none;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: auto;
+}
+
+.loginButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 3em;
+  width: 10em;
+  border-radius: 12px;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(222, 223, 224);
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
 }
 
 .title a:hover,
