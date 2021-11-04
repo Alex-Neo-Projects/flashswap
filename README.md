@@ -1,4 +1,4 @@
-# create-wallet-test
+# FlashSwap
 
 # running app: 
 - run dev server: yarn dev 
