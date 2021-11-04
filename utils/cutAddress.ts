@@ -1,4 +1,4 @@
-export const cutAddress = (address: String | null) => {
+export const cutAddress = (address: String) => {
   return (
     address?.substring(0, 6) +
     '...' +
