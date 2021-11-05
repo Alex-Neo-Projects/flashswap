@@ -3,6 +3,7 @@ import Onboard from 'bnc-onboard'
 import { useState, useMemo, useCallback, useEffect } from 'react'
 import { Web3Provider } from '@ethersproject/providers'
 import { API, Ens, Wallet } from 'bnc-onboard/dist/src/interfaces'
+import { showToast } from '../utils/showToast'
 
 export const useWallet = () => {
   const [wallet, setWallet] = useState<Wallet | null>(null)
@@ -66,11 +67,13 @@ export const useWallet = () => {
   }, [onboard])
 
   const login = async () => {
-    await onboard?.walletSelect()
+    await onboard?.walletSelect();
 
     try {
-      await onboard?.walletCheck()
-    } catch (error) {}
+      await onboard?.walletCheck();
+    } catch (error) {
+      showToast("Error connecting to wallet. Try Again!");
+    }
   }
 
   return {
