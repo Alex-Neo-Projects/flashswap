@@ -71,6 +71,7 @@ export const useWallet = () => {
 
     try {
       await onboard?.walletCheck();
+      showToast("Connected to Flash Swap!");
     } catch (error) {
       showToast("Error connecting to wallet. Try Again!");
     }

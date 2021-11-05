@@ -10,7 +10,7 @@ import { showToast }from "../utils/showToast"
 
 const Home: NextPage = () => {
   const { login, address } = useWallet();
-
+  
   return (
     <div className={styles.container}>
       <Head>

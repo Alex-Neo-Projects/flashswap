@@ -5,7 +5,7 @@ export const ShowToast = () => {
   return (
     <div>
       <ToastContainer
-        position="top-center"
+        position="bottom-right"
         autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}
