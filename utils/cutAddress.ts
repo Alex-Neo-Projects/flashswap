@@ -4,4 +4,4 @@ export const cutAddress = (address: String) => {
     '...' +
     address?.substring(address.length - 4, address.length)
   )
-}
+};

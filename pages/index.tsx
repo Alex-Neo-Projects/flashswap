@@ -5,9 +5,11 @@ import styles from '../styles/Home.module.css'
 import { useEffect } from 'react'
 import { useWallet } from '../hooks/useWallet'
 import { cutAddress } from '../utils/cutAddress'
+import { ShowToast } from "../components/toast"
+import { showToast }from "../utils/showToast"
 
 const Home: NextPage = () => {
-  const { login, address } = useWallet()
+  const { login, address } = useWallet();
 
   return (
     <div className={styles.container}>
@@ -24,13 +26,18 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <div className={styles.header}>
           <h1>Flash Swap</h1>
-
           <div className={styles.login}>
             <button onClick={() => login()} className={styles.loginButton}>
               {address !== null ? <p>{cutAddress(address)}</p> : <p>Connect</p>}
             </button>
           </div>
         </div>
+
+        <div>
+          <p>Flash Swap allows you to make flash swaps on Uniswap V3.</p>
+        </div>
+
+        <ShowToast />
       </main>
 
       <footer className={styles.footer}>
