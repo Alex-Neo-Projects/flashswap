@@ -22,13 +22,12 @@ const Home: NextPage = () => {
     const getPools = async () => {
       setLoadingPoolData(true);
       const poolData = await queryPools(poolQuery);
-      console.log(poolData.pools[0].token0)
       setPoolData(poolData.pools);
       setLoadingPoolData(false);
     }
 
     getPools()
-  }, [])
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -62,12 +61,12 @@ const Home: NextPage = () => {
           </div>
 
           <div className={styles.pools}>
-            <h2>Pools</h2>
-            <div className={styles.table}>
+            <h2>Select Pools</h2>
+            <div className={styles.tableSection}>
               {loadingPoolData ? (
                 <p>Loading Pool Data...</p>
               ) : (
-                <table>
+                <table className={styles.table}>
                   <thead>
                     <tr>
                       <th>#</th>
@@ -80,12 +79,12 @@ const Home: NextPage = () => {
                   <tbody>
                   {
                     poolData.map((pool, idx) => (
-                        <tr key={idx+1}>
-                          <th>{idx+1}</th>
-                          <th>temp</th>
-                          <th>$ {roundNumber(pool.volumeUSD)}</th>
-                          <th>{roundNumber(pool.totalValueLockedETH)} ETH</th>
-                          <th>${roundNumber(pool.totalValueLockedUSD)}</th>
+                        <tr key={idx+1} onClick={()=> {console.log(pool)}}>
+                          <td>{idx+1}</td>
+                          <td>{pool.token0.symbol + "/" + pool.token1.symbol}</td>
+                          <td>$ {roundNumber(pool.volumeUSD)}</td>
+                          <td>{roundNumber(pool.totalValueLockedETH)} ETH</td>
+                          <td>${roundNumber(pool.totalValueLockedUSD)}</td>
                         </tr>
                     ))  
                   }
