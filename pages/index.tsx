@@ -4,12 +4,24 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { useEffect } from 'react'
 import { useWallet } from '../hooks/useWallet'
+import { usePools } from '../hooks/usePools'
 import { cutAddress } from '../utils/cutAddress'
 import { ShowToast } from '../components/toast'
 import { showToast } from '../utils/showToast'
+import { poolQuery } from '../utils/queries'
 
 const Home: NextPage = () => {
   const { login, address } = useWallet()
+
+  const { queryPools } = usePools()
+
+  useEffect(() => {
+    const getPools = async () => {
+      return queryPools(poolQuery)
+    }
+
+    console.log(getPools())
+  }, [])
 
   return (
     <div className={styles.container}>
@@ -37,9 +49,15 @@ const Home: NextPage = () => {
             </div>
           </div>
 
-          <div>
+          <div className={styles.instructions}>
             <p>Flash Swap allows you to make flash swaps on Uniswap V3.</p>
           </div>
+
+          <div className={styles.pools}>
+            <h2>Pools</h2>
+          </div>
+
+          <div className={styles.swap}></div>
 
           <ShowToast />
         </main>

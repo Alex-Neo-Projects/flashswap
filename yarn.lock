@@ -720,6 +720,11 @@
   resolved "https://registry.yarnpkg.com/@gnosis.pm/safe-apps-sdk/-/safe-apps-sdk-3.0.0.tgz#0f90185c3693f2683322d275e796e61ff99ce87d"
   integrity sha512-dLCSlniYnxEqCglx4XdhByvi7KKuSYRWJKm1lVXAc4oJqwwVkoCwp0bFIejLZ/dnf7cQSBUUVsTGWhvSda511w==
 
+"@graphql-typed-document-node/core@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@graphql-typed-document-node/core/-/core-3.1.0.tgz#0eee6373e11418bfe0b5638f654df7a4ca6a3950"
+  integrity sha512-wYn6r8zVZyQJ6rQaALBEln5B1pzxb9shV5Ef97kTvn6yVGrqyXVnDqnU24MXnFubR+rZjBY9NWuxX3FB2sTsjg==
+
 "@hapi/accept@5.0.2":
   version "5.0.2"
   resolved "https://registry.npmjs.org/@hapi/accept/-/accept-5.0.2.tgz"
@@ -1330,6 +1335,14 @@
   dependencies:
     "@typescript-eslint/types" "4.33.0"
     eslint-visitor-keys "^2.0.0"
+
+"@urql/core@^2.3.2":
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/@urql/core/-/core-2.3.4.tgz#4eb00d6b2c631b031e4ad235fcce1a11ceb09ecd"
+  integrity sha512-KXeR55ONqkTZ2gwNgyFGJEGRp1/jEnyqkFjEguknnG6GFaikAwAX0TMijKcX6ZQ4qE59cDtVEtSbqpVkd9XNmA==
+  dependencies:
+    "@graphql-typed-document-node/core" "^3.1.0"
+    wonka "^4.0.14"
 
 "@walletconnect/browser-utils@^1.6.6":
   version "1.6.6"
@@ -4722,6 +4735,11 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.1.9:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
   integrity sha1-TK+tdrxi8C+gObL5Tpo906ORpyU=
+
+graphql@^16.0.1:
+  version "16.0.1"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-16.0.1.tgz#93a13cd4e0e38ca8d0832e79614c8578bfd34f10"
+  integrity sha512-oPvCuu6dlLdiz8gZupJ47o1clgb72r1u8NDBcQYjcV6G/iEdmE11B1bBlkhXRvV0LisP/SXRFP7tT6AgaTjpzg==
 
 gridplus-sdk@^0.7.16:
   version "0.7.27"
@@ -8675,6 +8693,14 @@ url@^0.11.0:
     punycode "1.3.2"
     querystring "0.2.0"
 
+urql@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/urql/-/urql-2.0.5.tgz#ab56bdc659fc0f4b3bc5b286359a354c74817bdb"
+  integrity sha512-UOl37CkNO1sfhw8jPihq+9NKUpTLnsRjpK7vmOVqPceqSO0rYXHOAEJp2TWDhyLjn2lYDlDlAfDaxNyK5m1FOA==
+  dependencies:
+    "@urql/core" "^2.3.2"
+    wonka "^4.0.14"
+
 use-subscription@1.5.1:
   version "1.5.1"
   resolved "https://registry.npmjs.org/use-subscription/-/use-subscription-1.5.1.tgz"
@@ -9240,6 +9266,11 @@ window-size@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/window-size/-/window-size-0.2.0.tgz#b4315bb4214a3d7058ebeee892e13fa24d98b075"
   integrity sha1-tDFbtCFKPXBY6+7okuE/ok2YsHU=
+
+wonka@^4.0.14:
+  version "4.0.15"
+  resolved "https://registry.yarnpkg.com/wonka/-/wonka-4.0.15.tgz#9aa42046efa424565ab8f8f451fcca955bf80b89"
+  integrity sha512-U0IUQHKXXn6PFo9nqsHphVCE5m3IntqZNB9Jjn7EB1lrR7YTDY3YWgFvEvwniTzXSvOH/XMzAZaIfJF/LvHYXg==
 
 word-wrap@^1.2.3:
   version "1.2.3"
