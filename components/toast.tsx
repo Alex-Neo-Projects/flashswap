@@ -1,5 +1,5 @@
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export const ShowToast = () => {
   return (
@@ -16,5 +16,5 @@ export const ShowToast = () => {
         pauseOnHover
       />
     </div>
-  );
-};
+  )
+}

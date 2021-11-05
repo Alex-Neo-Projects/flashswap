@@ -6,13 +6,22 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  width: 100vw;
+  background-image: url('/assets/gradient.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.main {
+.filter {
+  backdrop-filter: blur(8px);
+  height: 100%;
+  width: 100%;
   padding: 1rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .header {
@@ -31,6 +40,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-top: auto;
 }
 
 .footer a {
@@ -61,10 +71,12 @@
   width: 10em;
   border-radius: 12px;
   background-color: rgb(255, 255, 255);
-  border: 2px solid rgb(222, 223, 224);
+  border: 1px solid rgb(234, 237, 240);
   font-weight: 500;
   cursor: pointer;
   user-select: none;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
 }
 
 .title a:hover,

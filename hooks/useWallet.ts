@@ -67,13 +67,13 @@ export const useWallet = () => {
   }, [onboard])
 
   const login = async () => {
-    await onboard?.walletSelect();
+    await onboard?.walletSelect()
 
     try {
-      await onboard?.walletCheck();
-      showToast("Connected to Flash Swap!");
+      await onboard?.walletCheck()
+      showToast('Connected to Flash Swap!')
     } catch (error) {
-      showToast("Error connecting to wallet. Try Again!");
+      showToast('Error connecting to wallet. Try Again!')
     }
   }
 
