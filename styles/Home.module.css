@@ -41,9 +41,9 @@
 
 .footer a {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  flex-grow: 1;
 }
 
 .title a {
