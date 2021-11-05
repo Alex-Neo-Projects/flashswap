@@ -7,7 +7,7 @@ export const usePools = () => {
       url: 'https://api.thegraph.com/subgraphs/name/ianlapham/uniswap-v3-subgraph',
       requestPolicy: 'cache-first',
     })
-  }, []);
+  }, [])
 
   const queryPools = useCallback(async (query: string): Promise<any> => {
     const pools = await client

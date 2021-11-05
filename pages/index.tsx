@@ -1,13 +1,17 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
 import { useEffect, useState } from 'react'
+
+import styles from '../styles/Home.module.css'
+
+import { ShowToast } from '../components/toast'
+
 import { useWallet } from '../hooks/useWallet'
 import { usePools } from '../hooks/usePools'
-import {roundNumber} from '../utils/roundNumber'
+
+import { roundNumber } from '../utils/roundNumber'
 import { cutAddress } from '../utils/cutAddress'
-import { ShowToast } from '../components/toast'
 import { showToast } from '../utils/showToast'
 import { poolQuery } from '../utils/queries'
 
@@ -17,17 +21,18 @@ const Home: NextPage = () => {
 
   const [poolData, setPoolData] = useState<Array<any>>([])
   const [loadingPoolData, setLoadingPoolData] = useState<Boolean>(false)
+  const [selectPools, setSelectPools] = useState<Array<any>>([])
 
   useEffect(() => {
     const getPools = async () => {
-      setLoadingPoolData(true);
-      const poolData = await queryPools(poolQuery);
-      setPoolData(poolData.pools);
-      setLoadingPoolData(false);
+      setLoadingPoolData(true)
+      const poolData = await queryPools(poolQuery)
+      setPoolData(poolData.pools)
+      setLoadingPoolData(false)
     }
 
     getPools()
-  }, []);
+  }, [])
 
   return (
     <div className={styles.container}>
@@ -77,18 +82,27 @@ const Home: NextPage = () => {
                     </tr>
                   </thead>
                   <tbody>
-                  {
-                    poolData.map((pool, idx) => {
+                    {poolData.map((pool, idx) => {
                       return (
-                          <tr onClick={()=> {console.log(pool)}} key={idx}>
-                            <td>{idx+1}</td>
-                            <td>{pool.token0.symbol + "/" + pool.token1.symbol}</td>
-                            <td>$ {roundNumber(pool.volumeUSD)}</td>
-                            <td>{roundNumber(pool.totalValueLockedETH)} ETH</td>
-                            <td>${roundNumber(pool.totalValueLockedUSD)}</td>
-                          </tr>
-                      )})  
-                  }
+                        <tr
+                          onClick={() => {
+                            setSelectPools((selectedPools) => [
+                              ...selectedPools,
+                              pool,
+                            ])
+                          }}
+                          key={idx}
+                        >
+                          <td>{idx + 1}</td>
+                          <td>
+                            {pool.token0.symbol + '/' + pool.token1.symbol}
+                          </td>
+                          <td>$ {roundNumber(pool.volumeUSD)}</td>
+                          <td>{roundNumber(pool.totalValueLockedETH)} ETH</td>
+                          <td>${roundNumber(pool.totalValueLockedUSD)}</td>
+                        </tr>
+                      )
+                    })}
                   </tbody>
                 </table>
               )}

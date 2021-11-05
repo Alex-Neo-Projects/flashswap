@@ -88,15 +88,13 @@
   margin-bottom: 50px;
   display: flex;
   flex-direction: column;
-
 }
 
-.table tbody tr:hover{
+.table tbody tr:hover {
   color: rgb(116, 113, 113);
   cursor: pointer;
   user-select: none;
 }
-
 
 .swap {
 }
