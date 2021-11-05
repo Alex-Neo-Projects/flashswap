@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css'
 import { useEffect, useState } from 'react'
 import { useWallet } from '../hooks/useWallet'
 import { usePools } from '../hooks/usePools'
+import {roundNumber} from '../utils/roundNumber'
 import { cutAddress } from '../utils/cutAddress'
 import { ShowToast } from '../components/toast'
 import { showToast } from '../utils/showToast'
@@ -19,13 +20,14 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     const getPools = async () => {
-      const poolData = await queryPools(poolQuery)
-      setPoolData(poolData.pools)
+      setLoadingPoolData(true);
+      const poolData = await queryPools(poolQuery);
+      console.log(poolData.pools[0].token0)
+      setPoolData(poolData.pools);
+      setLoadingPoolData(false);
     }
 
-    setLoadingPoolData(true)
     getPools()
-    setLoadingPoolData(false)
   }, [])
 
   return (
@@ -81,9 +83,9 @@ const Home: NextPage = () => {
                         <tr key={idx+1}>
                           <th>{idx+1}</th>
                           <th>temp</th>
-                          <th>${pool.volumeUSD}</th>
-                          <th>{pool.totalValueLockedETH} ETH</th>
-                          <th>${pool.totalValueLockedUSD}</th>
+                          <th>$ {roundNumber(pool.volumeUSD)}</th>
+                          <th>{roundNumber(pool.totalValueLockedETH)} ETH</th>
+                          <th>${roundNumber(pool.totalValueLockedUSD)}</th>
                         </tr>
                     ))  
                   }
