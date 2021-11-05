@@ -78,15 +78,16 @@ const Home: NextPage = () => {
                   </thead>
                   <tbody>
                   {
-                    poolData.map((pool, idx) => (
-                        <tr key={idx+1} onClick={()=> {console.log(pool)}}>
-                          <td>{idx+1}</td>
-                          <td>{pool.token0.symbol + "/" + pool.token1.symbol}</td>
-                          <td>$ {roundNumber(pool.volumeUSD)}</td>
-                          <td>{roundNumber(pool.totalValueLockedETH)} ETH</td>
-                          <td>${roundNumber(pool.totalValueLockedUSD)}</td>
-                        </tr>
-                    ))  
+                    poolData.map((pool, idx) => {
+                      return (
+                          <tr onClick={()=> {console.log(pool)}} key={idx}>
+                            <td>{idx+1}</td>
+                            <td>{pool.token0.symbol + "/" + pool.token1.symbol}</td>
+                            <td>$ {roundNumber(pool.volumeUSD)}</td>
+                            <td>{roundNumber(pool.totalValueLockedETH)} ETH</td>
+                            <td>${roundNumber(pool.totalValueLockedUSD)}</td>
+                          </tr>
+                      )})  
                   }
                   </tbody>
                 </table>
@@ -94,7 +95,9 @@ const Home: NextPage = () => {
             </div>
           </div>
 
-          <div className={styles.swap}>{/* <h2>Swap</h2> */}</div>
+          <div className={styles.swap}>
+            <h2>Swap</h2>
+          </div>
 
           <ShowToast />
         </main>
