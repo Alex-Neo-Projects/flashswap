@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useWallet } from '../hooks/useWallet'
 import { usePools } from '../hooks/usePools'
 import { cutAddress } from '../utils/cutAddress'
@@ -12,15 +12,20 @@ import { poolQuery } from '../utils/queries'
 
 const Home: NextPage = () => {
   const { login, address } = useWallet()
-
   const { queryPools } = usePools()
+
+  const [poolData, setPoolData] = useState<Array<any>>([])
+  const [loadingPoolData, setLoadingPoolData] = useState<Boolean>(false)
 
   useEffect(() => {
     const getPools = async () => {
-      return queryPools(poolQuery)
+      const poolData = await queryPools(poolQuery)
+      setPoolData(poolData.pools)
     }
 
-    console.log(getPools())
+    setLoadingPoolData(true)
+    getPools()
+    setLoadingPoolData(false)
   }, [])
 
   return (
@@ -51,13 +56,44 @@ const Home: NextPage = () => {
 
           <div className={styles.instructions}>
             <p>Flash Swap allows you to make flash swaps on Uniswap V3.</p>
+            <p>How do I use Flash Swap?</p>
           </div>
 
           <div className={styles.pools}>
             <h2>Pools</h2>
+            <div className={styles.table}>
+              {loadingPoolData ? (
+                <p>Loading Pool Data...</p>
+              ) : (
+                <table>
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Pool</th>
+                      <th>Volume USD</th>
+                      <th>TVL USD</th>
+                      <th>TVL ETH</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {
+                    poolData.map((pool, idx) => (
+                        <tr key={idx+1}>
+                          <th>{idx+1}</th>
+                          <th>temp</th>
+                          <th>${pool.volumeUSD}</th>
+                          <th>{pool.totalValueLockedETH} ETH</th>
+                          <th>${pool.totalValueLockedUSD}</th>
+                        </tr>
+                    ))  
+                  }
+                  </tbody>
+                </table>
+              )}
+            </div>
           </div>
 
-          <div className={styles.swap}></div>
+          <div className={styles.swap}>{/* <h2>Swap</h2> */}</div>
 
           <ShowToast />
         </main>

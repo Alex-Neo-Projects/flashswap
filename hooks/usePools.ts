@@ -9,13 +9,15 @@ export const usePools = () => {
     })
   }, [])
 
-  const queryPools = useCallback(async (query: string) => {
+  const queryPools = useCallback(async (query: string): Promise<any> => {
     const pools = await client
       .query(query)
       .toPromise()
       .then(async (res) => {
-        console.log(res.data)
+        return res.data
       })
+
+    console.log(pools)
 
     return pools
   }, [])

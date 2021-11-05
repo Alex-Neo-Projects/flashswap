@@ -83,6 +83,17 @@
   border-color: rgb(194, 197, 201);
 }
 
+.instructions {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.pools {
+}
+
+.swap {
+}
+
 .title a:hover,
 .title a:focus,
 .title a:active {
