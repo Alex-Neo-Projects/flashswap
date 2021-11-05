@@ -79,6 +79,10 @@
   font-weight: 600;
 }
 
+.loginButton:hover {
+  border-color: rgb(194, 197, 201);
+}
+
 .title a:hover,
 .title a:focus,
 .title a:active {
